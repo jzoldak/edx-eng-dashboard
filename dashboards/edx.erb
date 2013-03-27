@@ -7,6 +7,12 @@
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="my_widget" data-view="Text"></div>
     </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="mitx_hash" data-view="MitxVersion"></div>
+    </li>
   </ul>
-  <center><div style="font-size: 12px">curl -d '{ "auth_token": "EDX_RUL3Z", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/my_widget</div></center>
+  <center>
+    <div style="font-size: 12px">curl -d '{ "auth_token": "EDX_RUL3Z", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/my_widget</div>
+    <div style="font-size: 12px">curl -d '{ "auth_token": "EDX_RUL3Z", "mitx": "blah" }' \http://<%=request.host%>:<%=request.port%>/widgets/mitx_hash</div>
+  </center>
 </div>

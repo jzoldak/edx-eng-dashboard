@@ -1,7 +1,12 @@
+<% content_for(:title) { "edX Engineering" } %>
 <div class="gridster">
   <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-view="Image" data-image="/logo.png"></div>
+    </li>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="my_widget" data-view="Text"></div>
     </li>
   </ul>
+  <center><div style="font-size: 12px">curl -d '{ "auth_token": "EDX_RUL3Z", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/my_widget</div></center>
 </div>

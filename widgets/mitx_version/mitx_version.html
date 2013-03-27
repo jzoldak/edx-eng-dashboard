@@ -1,7 +1,18 @@
 <h1 class="title" data-bind="title"></h1>
 
-<h3 data-bind="mitx"></h3>
+<ol>
+  <li data-foreach-item="items">
+    <span class="label" data-bind="item.label"></span>
+    <span class="value" data-bind="item.value"></span>
+  </li>
+</ol>
 
-<p class="more-info" data-bind="moreinfo | raw"></p>
+<ul class="list-nostyle">
+  <li data-foreach-item="items">
+    <span class="label" data-bind="item.label"></span>
+    <span class="value" data-bind="item.value"></span>
+  </li>
+</ul>
 
+<p class="more-info" data-bind="moreinfo"></p>
 <p class="updated-at" data-bind="updatedAtMessage"></p>

@@ -1,0 +1,123 @@
+{
+  "actions": [
+    {
+      "causes": [
+        {
+          "shortDescription": "Started by an SCM change"
+        }
+      ]
+    },
+    {
+      
+    },
+    {
+      "buildsByBranchName": {
+        "origin\/master": {
+          "buildNumber": 523,
+          "buildResult": null,
+          "revision": {
+            "SHA1": "aaa7d1bf5db057fecfc6a5a335f054d25dd81ae6",
+            "branch": [
+              {
+                "SHA1": "aaa7d1bf5db057fecfc6a5a335f054d25dd81ae6",
+                "name": "origin\/master"
+              }
+            ]
+          }
+        }
+      },
+      "lastBuiltRevision": {
+        "SHA1": "aaa7d1bf5db057fecfc6a5a335f054d25dd81ae6",
+        "branch": [
+          {
+            "SHA1": "aaa7d1bf5db057fecfc6a5a335f054d25dd81ae6",
+            "name": "origin\/master"
+          }
+        ]
+      },
+      "remoteUrls": [
+        "git@github.com:MITx\/mitx.git"
+      ],
+      "scmName": ""
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      
+    },
+    {
+      "failCount": 0,
+      "skipCount": 9,
+      "totalCount": 654,
+      "urlName": "testReport"
+    },
+    {
+      
+    }
+  ],
+  "artifacts": [
+    
+  ],
+  "building": false,
+  "description": null,
+  "duration": 529205,
+  "estimatedDuration": 527102,
+  "executor": null,
+  "fullDisplayName": "edx-deploy-branch-tests master-523-aaa7d1bf",
+  "id": "2013-03-28_15-20-36",
+  "keepLog": false,
+  "number": 523,
+  "result": "SUCCESS",
+  "timestamp": 1364484036335,
+  "url": "http:\/\/jenkins.edx.org:8080\/job\/edx-deploy-branch-tests\/523\/",
+  "builtOn": "",
+  "changeSet": {
+    "items": [
+      {
+        "affectedPaths": [
+          "cms\/djangoapps\/contentstore\/features\/subsection.feature",
+          "cms\/djangoapps\/contentstore\/features\/subsection.py",
+          "cms\/templates\/overview.html"
+        ],
+        "commitId": "9b4c2fc8af1e18100c9c725cb1aab7d293929a35",
+        "timestamp": 1364482450000,
+        "author": {
+          "absoluteUrl": "http:\/\/jenkins.edx.org:8080\/user\/christina",
+          "fullName": "christina"
+        },
+        "comment": "Bug fix for grading type not showing on course outline (#258).\n",
+        "date": "2013-03-28 14:54:10 -0400",
+        "id": "9b4c2fc8af1e18100c9c725cb1aab7d293929a35",
+        "msg": "Bug fix for grading type not showing on course outline (#258).",
+        "paths": [
+          {
+            "editType": "edit",
+            "file": "cms\/djangoapps\/contentstore\/features\/subsection.py"
+          },
+          {
+            "editType": "edit",
+            "file": "cms\/templates\/overview.html"
+          },
+          {
+            "editType": "edit",
+            "file": "cms\/djangoapps\/contentstore\/features\/subsection.feature"
+          }
+        ]
+      }
+    ],
+    "kind": null
+  },
+  "culprits": [
+    {
+      "absoluteUrl": "http:\/\/jenkins.edx.org:8080\/user\/christina",
+      "fullName": "christina"
+    }
+  ]
+}

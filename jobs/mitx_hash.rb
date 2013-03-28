@@ -10,5 +10,5 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
   http = Net::HTTP.new(host, port)
   response = http.request(Net::HTTP::Get.new(request_uri))
   mitx_hash = JSON.parse(response.body)['mitx']
-  send_event('mitx_hash_list', { title: 'mitx version', unordered: true, items: [label: host, value: mitx_hash] })
+  send_event('mitx_hash_list', { title: 'mitx hash', unordered: true, items: [label: host, value: mitx_hash] })
 end

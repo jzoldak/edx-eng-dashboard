@@ -20,7 +20,7 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
 
     # note: status warning=red and danger=orange
     if response.code != '200'
-        send_event(widget, { title: 'GitHub', text: response.code, status: 'danger' })
+        send_event(widget, { title: 'GitHub', text: response.code, status: 'danger', moreinfo: 'response code is not 200' })
     else
         if status.nil?
             code = 'danger'
@@ -33,6 +33,7 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
         else
             code == 'danger'
         end
-        send_event(widget, { text: status, status: code })
+        moreinfo = 'DEBUG: color = ' + code
+        send_event(widget, { text: status, status: code, moreinfo: moreinfo })
     end
 end

@@ -1,5 +1,6 @@
-$background-color:  grey;
-$title-color:       rgba(255, 255, 255, 1);;
+$background-color:  #40be80;
+$title-color:       rgba(0, 0, 0, 1);;
+$text-color:       rgba(0, 0, 0, 1);;
 $moreinfo-color:    rgba(255, 255, 255, 1);;
 
 .widget-status { 
@@ -12,6 +13,10 @@ $moreinfo-color:    rgba(255, 255, 255, 1);;
 
   .more-info {
     color: $moreinfo-color;
+  }
+
+  .text {
+    color: $text-color;
   }
 
   .updated-at {

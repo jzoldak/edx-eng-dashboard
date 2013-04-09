@@ -17,12 +17,15 @@ job_mapping.each do |title, jenkins_project|
         response = http.request(Net::HTTP::Get.new("/job/#{jenkins_project}/lastBuild/api/json"))
         build_info = JSON.parse(response.body)
         current_status = build_info["result"]
-        send_event(title, { 
+        if build_info["building"] == true
+            current_status = "BUILDING"
+        end
+        send_event(title, {
             resultText: current_status,
             fullDisplayName: build_info["fullDisplayName"],
-            currentResult: current_status, 
-            lastResult: last_status, 
-            number: build_info["number"], 
+            currentResult: current_status,
+            lastResult: last_status,
+            number: build_info["number"],
             url: build_info["url"],
             timestamp: build_info["timestamp"] })
     end

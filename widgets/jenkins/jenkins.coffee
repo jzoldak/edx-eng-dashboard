@@ -2,9 +2,11 @@ class Dashing.Jenkins extends Dashing.Widget
 
   @accessor 'bgColor', ->
     if @get('currentResult') == "SUCCESS"
-      'green'
+      '#40be80'
     else if @get('currentResult') == "FAILURE"
-      'red'
+      '#e82711'
+    else if @get('currentResult') == "UNSTABLE"
+      '#eeae32'
     else
       'grey'
 

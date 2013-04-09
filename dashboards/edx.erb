@@ -13,13 +13,19 @@ $(function() {
     </li>
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="mathworks_status" data-view="Status"></div>
-    </li>    
-    <li data-row="1" data-col="3" data-sizex="2" data-sizey="1">
+    </li>
+    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+      <div data-id="github_status" data-title="GitHub Status" data-view="Status"></div>
+    </li>
+    <li data-row="1" data-col="4" data-sizex="2" data-sizey="1">
       <div data-id="jenkins_status" data-view="Jenkins" data-title="Build Status"></div>
     </li>
-    <li data-row="1" data-col="5" data-sizex="1" data-sizey="1">
-      <div data-id="github_status" data-title="GitHub Status" data-view="Status"></div>
-    </li>    
+    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="pep8" data-view="Number" data-title="PEP8 Violations" style="background-color:#8a8c8f"></div>
+    </li>
+    <li data-row="3" data-col="5" data-sizex="1" data-sizey="1">
+      <div data-id="pylint" data-view="Number" data-title="Pylint Violations" style="background-color:#8a8c8f"></div>
+    </li>
     <li data-row="2" data-col="3" data-sizex="2" data-sizey="1">
       <div data-id="mitx_hash_prod" data-view="MitxVersion" style="background-color:#b52967"></div>
     </li>
@@ -27,22 +33,22 @@ $(function() {
       <div data-id="mitx_hash_stage" data-view="MitxVersion" style="background-color:#b52967"></div>
     </li>
     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="py_cms" data-view="Meter" data-title="CMS" 
+      <div data-id="py_cms" data-view="Meter" data-title="CMS"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
     <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="py_lms" data-view="Meter" data-title="LMS" 
+      <div data-id="py_lms" data-view="Meter" data-title="LMS"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="py_capa" data-view="Meter" data-title="capa" 
+      <div data-id="py_capa" data-view="Meter" data-title="capa"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
     <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="py_xmodule" data-view="Meter" data-title="xmodule" 
+      <div data-id="py_xmodule" data-view="Meter" data-title="xmodule"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>

@@ -2,7 +2,7 @@ require "net/https"
 require "json"
 require "uri"
 
-uri = URI.parse("https://integ-6-0-1.mss-mathworks.com/stateless/mooc/edX")
+uri = URI.parse("https://prod.mss-mathworks.com/stateless/mooc/edX")
 data = {"xqueue_body" => "{\"student_response\": \"x=1\\n\", \"grader_payload\": \"%api_key=API_KEY_HERE\\n%%\\nassert(isequal(x,1))\\n\"}"}.to_json
 
 # :first_in sets how long it takes before the job is first run. In this case, it is run immediately

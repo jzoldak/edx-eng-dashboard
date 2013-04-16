@@ -15,31 +15,32 @@ SCHEDULER.every '10s', :first_in => 0 do |job|
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
     request = Net::HTTP::Get.new(uri.request_uri)
     request["Content-Type"] = "application/json"
-    response = http.request(request)
-    b = response.body
-    status = JSON.parse(b)['status']
-    updated = JSON.parse(b)['last_updated']
+    begin
+        response = http.request(request)
+        b = response.body
+        status = JSON.parse(b)['status']
+        updated = JSON.parse(b)['last_updated']
 
-    # note: status warning=red and danger=orange
-    if response.code != '200'
-        send_event(widget, { title: 'GitHub', text: response.code,
-            status: 'danger', moreinfo: 'response code is not 200' })
-    else
-        if status.nil?
-            code = 'danger'
-        elsif status == 'good'
-            code = 'ok'
-        elsif status == 'minor'
-            code == 'danger'
-        elsif status == 'major'
-            code == 'warning'
+        # note: status warning=red and danger=orange
+        if response.code != '200'
+            send_event(widget, { title: 'GitHub', text: response.code,
+                status: 'danger', moreinfo: 'response code is not 200' })
         else
-            code == 'danger'
+            if status.nil?
+                code = 'danger'
+            elsif status == 'good'
+                code = 'ok'
+            elsif status == 'minor'
+                code == 'danger'
+            elsif status == 'major'
+                code == 'warning'
+            else
+                code == 'danger'
+            end
+            send_event(widget, { text: status, status: code, moreinfo: updated })
         end
-        send_event(widget, { text: status, status: code, moreinfo: updated })
-    end
-
     rescue Timeout::Error
         send_event(widget, { title: 'GitHub', text: 'Timeout',
             status: 'danger', moreinfo: 'timeout exception caught' })
+    end
 end

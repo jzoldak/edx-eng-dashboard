@@ -27,14 +27,14 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
     p_hosts.each do |host|
         http = Net::HTTP.new(host + suffix, port)
         response = http.request(Net::HTTP::Get.new(request_uri))
-        mitx_hash = JSON.parse(response.body)['mitx']
+        mitx_hash = JSON.parse(response.body)['edx-platform']
         prod_hash[host] =  { label: host, value: mitx_hash }
     end
     stage_hash = Hash.new({ value: "N/A" })
     s_hosts.each do |host|
         http = Net::HTTP.new(host + suffix, port)
         response = http.request(Net::HTTP::Get.new(request_uri))
-        mitx_hash = JSON.parse(response.body)['mitx']
+        mitx_hash = JSON.parse(response.body)['edx-platform']
         stage_hash[host] = { label: host, value: mitx_hash }
     end
 

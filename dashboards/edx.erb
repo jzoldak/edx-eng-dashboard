@@ -1,56 +1,56 @@
 <script type='text/javascript'>
 $(function() {
-  Dashing.widget_base_dimensions = [278, 255]
-  Dashing.numColumns = 5
+Dashing.widget_base_dimensions = [105, 105]
+Dashing.numColumns = 12
 });
 </script>
 
 <% content_for(:title) { "edX Engineering" } %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="5" data-sizex="4" data-sizey="2">
       <div data-view="Image" data-image="/logo.png"></div>
     </li>
-    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
       <div data-id="mathworks_status" data-view="Status"></div>
     </li>
-    <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
       <div data-id="github_status" data-title="GitHub Status" data-view="Status"></div>
     </li>
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+    <li data-row="1" data-col="9" data-sizex="4" data-sizey="2">
       <div data-id="jenkins_deploy_status" data-view="Jenkins" data-title="Deploy Tests"></div>
     </li>
-    <li data-row="1" data-col="4" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="9" data-sizex="4" data-sizey="2">
       <div data-id="jenkins_acceptance_status" data-view="Jenkins" data-title="Acceptance Tests"></div>
     </li>
-    <li data-row="2" data-col="5" data-sizex="1" data-sizey="1">
+    <li data-row="5" data-col="9" data-sizex="2" data-sizey="2">
       <div data-id="pep8" data-view="Violations" data-title="PEP8 Violations"></div>
     </li>
-    <li data-row="3" data-col="5" data-sizex="1" data-sizey="1">
+    <li data-row="5" data-col="11" data-sizex="2" data-sizey="2">
       <div data-id="pylint" data-view="Violations" data-title="Pylint Violations"></div>
     </li>
-    <li data-row="2" data-col="3" data-sizex="2" data-sizey="1">
+    <li data-row="6" data-col="5" data-sizex="4" data-sizey="2">
       <div data-id="mitx_hash_prod" data-view="MitxVersion" style="background-color:#b52967"></div>
     </li>
-    <li data-row="3" data-col="3" data-sizex="2" data-sizey="1">
+    <li data-row="4" data-col="5" data-sizex="4" data-sizey="2">
       <div data-id="mitx_hash_stage" data-view="MitxVersion" style="background-color:#b52967"></div>
     </li>
-    <li data-row="2" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="py_cms" data-view="Meter" data-title="CMS"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
-    <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
+    <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
       <div data-id="py_lms" data-view="Meter" data-title="LMS"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
-    <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
+    <li data-row="6" data-col="1" data-sizex="1" data-sizey="1">
       <div data-id="py_capa" data-view="Meter" data-title="capa"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
-    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+    <li data-row="6" data-col="3" data-sizex="1" data-sizey="1">
       <div data-id="py_xmodule" data-view="Meter" data-title="xmodule"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>

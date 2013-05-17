@@ -6,7 +6,8 @@ JENKINS_PORT = 8080
 
 # the key of this mapping must be a unique identifier for your job, the according value must be the name that is specified in jenkins
 job_mapping = {
-  'jenkins_status' => 'edx-deploy-branch-tests'
+  'jenkins_deploy_status' => 'edx-deploy-branch-tests',
+  'jenkins_acceptance_status' => 'edx-acceptance-tests'
 }
 
 job_mapping.each do |title, jenkins_project|

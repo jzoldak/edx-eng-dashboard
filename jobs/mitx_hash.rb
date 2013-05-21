@@ -6,12 +6,12 @@ request_uri = '/versions.json'
 
 p_hosts = ["prod-edge-edxapp-001",
            "prod-edge-edxapp-002",
-           "prod-edx-001",
-           "prod-edx-002",
-           "prod-edx-003",
-           "prod-edxapp-001",
-           "prod-edxapp-002",
-           "prod-edxapp-003"
+           "prod-edxapp-004",
+           "prod-edxapp-005",
+           "prod-edxapp-006",
+           "prod-edxapp-007",
+           "prod-edxapp-008",
+           "prod-edxapp-009"
            ]
 s_hosts = ["stage-edge-edxapp-001",
            "stage-edge-edxapp-002",

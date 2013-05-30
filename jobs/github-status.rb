@@ -22,22 +22,16 @@ SCHEDULER.every '10s', :first_in => 0 do |job|
         updated = JSON.parse(b)['last_updated']
 
         # note: status warning=red and danger=orange
-        if response.code != '200'
-            send_event(widget, { title: 'GitHub', text: response.code,
-                status: 'danger', moreinfo: 'response code is not 200' })
+        if status.nil?
+            send_event(widget, { text: status, status: 'danger', moreinfo: updated })
+        elsif status == 'good'
+            send_event(widget, { text: status, status: 'ok', moreinfo: updated })
+        elsif status == 'minor'
+            send_event(widget, { text: status, status: 'danger', moreinfo: updated })
+        elsif status == 'major'
+            send_event(widget, { text: status, status: 'warning', moreinfo: updated })
         else
-            if status.nil?
-                code = 'danger'
-            elsif status == 'good'
-                code = 'ok'
-            elsif status == 'minor'
-                code == 'danger'
-            elsif status == 'major'
-                code == 'warning'
-            else
-                code == 'danger'
-            end
-            send_event(widget, { text: status, status: code, moreinfo: updated })
+            send_event(widget, { text: status, status: 'danger', moreinfo: updated })
         end
     rescue Timeout::Error
         send_event(widget, { title: 'GitHub', text: 'Timeout',

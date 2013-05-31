@@ -1,5 +1,6 @@
 require "net/http"
 require "json"
+require "set"
 
 port = '8099'
 request_uri = '/versions.json'
@@ -38,6 +39,27 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
         stage_hash[host] = { label: host, value: mitx_hash }
     end
 
-    send_event('mitx_hash_prod', { title: 'Production Version', unordered: true, items: prod_hash.values })
-    send_event('mitx_hash_stage', { title: 'Staging Version', unordered: true, items: stage_hash.values })
+    prod_hashes = Set.new
+    prod_hash.values.each {|val| prod_hashes.add(val[:value])}
+    prod_hashes.count
+
+    if prod_hashes.count==1
+        send_event('mitx_hash_prod', { title: 'Production Version', unordered: true,
+                                       items: prod_hash.values, status:'ok' })
+    else
+        send_event('mitx_hash_prod', { title: 'Production Version', unordered: true,
+                                       items: prod_hash.values, status:'danger' })
+    end
+
+    stage_hashes = Set.new
+    stage_hash.values.each {|val| stage_hashes.add(val[:value])}
+    stage_hashes.count
+
+    if stage_hashes.count==1
+        send_event('mitx_hash_stage', { title: 'Staging Version', unordered: true,
+                                        items: stage_hash.values, status: 'ok' })
+    else
+        send_event('mitx_hash_stage', { title: 'Staging Version', unordered: true,
+                                        items: stage_hash.values, status: 'danger' })
+    end
 end

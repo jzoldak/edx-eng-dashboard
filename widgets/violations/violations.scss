@@ -13,6 +13,7 @@ $moreinfo-color:    black;
 .widget-violations {
 
   background-color: $background-color;
+  height: 284px;
 
   .title {
     color: $title-color;
@@ -20,6 +21,7 @@ $moreinfo-color:    black;
 
   .value {
     color: $value-color;
+    font-size: 56px;
   }
 
   .change-rate {

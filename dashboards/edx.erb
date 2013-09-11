@@ -1,11 +1,5 @@
 <script type='text/javascript'>
 $(function() {
-    Dashing.gridsterLayout('[{"col":11,"row":1},{"col":3,"row":4},{"col":1,"row":4},{"col":9,"row":4},{"col":9,"row":6},{"col":1,"row":6},{"col":3,"row":6},{"col":5,"row":6},{"col":5,"row":4},{"col":3,"row":1},{"col":1,"row":1},{"col":5,"row":1},{"col":7,"row":1},{"col":9,"row":1}]')
-});
-</script>
-
-<script type='text/javascript'>
-$(function() {
 Dashing.widget_base_dimensions = [105, 105]
 Dashing.numColumns = 12
 });
@@ -14,57 +8,59 @@ Dashing.numColumns = 12
 <% content_for(:title) { "edX Engineering" } %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="7" data-sizex="2" data-sizey="3">
-      <div data-view="Image" data-image="/logo.png"></div>
-    </li>
-    <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
-      <div data-id="mathworks_status" data-view="Status"></div>
-    </li>
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="2">
-      <div data-id="github_status" data-title="GitHub Status" data-view="Status"></div>
-    </li>
-    <li data-row="1" data-col="9" data-sizex="4" data-sizey="2">
-      <div data-id="jenkins_deploy_status" data-view="Jenkins" data-title="Deploy Tests"></div>
-    </li>
-    <li data-row="3" data-col="9" data-sizex="4" data-sizey="2">
-      <div data-id="jenkins_acceptance_status" data-view="Jenkins" data-title="Acceptance Tests"></div>
-    </li>
-    <li data-row="5" data-col="9" data-sizex="2" data-sizey="2">
-      <div data-id="pep8" data-view="Violations" data-title="PEP8 Violations"></div>
-    </li>
-    <li data-row="5" data-col="11" data-sizex="2" data-sizey="2">
-      <div data-id="pylint" data-view="Violations" data-title="Pylint Violations"></div>
-    </li>
-    <li data-row="6" data-col="5" data-sizex="4" data-sizey="3">
-      <div data-id="mitx_hash_prod" data-view="MitxVersion" style="background-color:#b52967"></div>
-    </li>
-    <li data-row="4" data-col="5" data-sizex="4" data-sizey="2">
-      <div data-id="mitx_hash_stage" data-view="MitxVersion" style="background-color:#b52967"></div>
-    </li>
-    <li data-row="3" data-col="1" data-sizex="2" data-sizey="3">
-      <div data-id="py_cms" data-view="Meter" data-title="CMS"
-      data-moreinfo="Python code coverage %"
-      data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
-    </li>
-    <li data-row="3" data-col="3" data-sizex="2" data-sizey="3">
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="3">
       <div data-id="py_lms" data-view="Meter" data-title="LMS"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
-    <li data-row="6" data-col="1" data-sizex="2" data-sizey="3">
+    <li data-row="1" data-col="2" data-sizex="2" data-sizey="3">
+      <div data-id="py_cms" data-view="Meter" data-title="CMS"
+      data-moreinfo="Python code coverage %"
+      data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="2" data-sizey="3">
       <div data-id="py_capa" data-view="Meter" data-title="capa"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
-    <li data-row="6" data-col="3" data-sizex="2" data-sizey="3">
+    <li data-row="1" data-col="4" data-sizex="2" data-sizey="3">
       <div data-id="py_xmodule" data-view="Meter" data-title="xmodule"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
-    <li data-row="6" data-col="5" data-sizex="2" data-sizey="3">
+    <li data-row="1" data-col="5" data-sizex="2" data-sizey="3">
       <div data-id="js_coverage" data-view="Meter" data-title="JavaScript"
       data-moreinfo="JavaScript code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
+    </li>
+    <li data-row="1" data-col="6" data-sizex="2" data-sizey="3">
+      <div data-id="xblock_coverage" data-view="Meter" data-title="XBlock"
+      data-moreinfo="XBlock code coverage %"
+      data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
+    </li>
+    <li data-row="4" data-col="1" data-sizex="2" data-sizey="2">
+      <div data-id="github_status" data-title="GitHub Status" data-view="Status"></div>
+    </li>
+    <li data-row="4" data-col="2" data-sizex="2" data-sizey="2">
+      <div data-id="mathworks_status" data-view="Status"></div>
+    </li>
+    <li data-row="4" data-col="3" data-sizex="4" data-sizey="2">
+      <div data-id="mitx_hash_stage" data-view="MitxVersion" style="background-color:#b52967"></div>
+    </li>
+    <li data-row="4" data-col="5" data-sizex="4" data-sizey="2">
+      <div data-id="jenkins_deploy_status" data-view="Jenkins" data-title="Deploy Tests"></div>
+    </li>
+    <li data-row="6" data-col="1" data-sizex="2" data-sizey="2">
+      <div data-id="pep8" data-view="Violations" data-title="PEP8 Violations"></div>
+    </li>
+    <li data-row="6" data-col="2" data-sizex="2" data-sizey="2">
+      <div data-id="pylint" data-view="Violations" data-title="Pylint Violations"></div>
+    </li>
+    <li data-row="6" data-col="3" data-sizex="4" data-sizey="3">
+      <div data-id="mitx_hash_prod" data-view="MitxVersion" style="background-color:#b52967"></div>
+    </li>
+    <li data-row="6" data-col="5" data-sizex="4" data-sizey="3">
+      <div data-id="jenkins_acceptance_status" data-view="Jenkins" data-title="Acceptance Tests"></div>
     </li>
   </ul>
 </div>

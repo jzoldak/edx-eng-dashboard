@@ -1,21 +1,21 @@
-require "open-uri"
-require "openssl"
-require "json"
+require 'open-uri'
+require 'openssl'
+require 'json'
 
-base_uri = 'https://jenkins.testeng.edx.org'
+JENKINS_BASE_URL = 'https://jenkins.testeng.edx.org'
 
 # :first_in sets how long it takes before the job is first run. In this case, it is run immediately
 SCHEDULER.every '5m', :first_in => 0 do |job|
 
     # Retrieve the number of the last stable build
-    last_build_uri = base_uri + '/job/edx-platform-master/lastStableBuild/buildNumber'
+    last_build_uri = JENKINS_BASE_URL + '/job/edx-platform-master/lastStableBuild/buildNumber'
 
     # Once SSL certificates are set up correctly, we can remove the :ssl_verify_mode option
     response = open(last_build_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
     last_build_num = response.to_i
 
     # Retrieve the coverage info as JSON
-    coverage_uri = base_uri + "/job/edx-platform-master/SHARD=1,TEST_SUITE=unit/#{last_build_num}/cobertura/javascript/api/json?depth=2"
+    coverage_uri = JENKINS_BASE_URL + "/job/edx-platform-master/SHARD=1,TEST_SUITE=unit/#{last_build_num}/cobertura/javascript/api/json?depth=2"
     coverage_data = open(coverage_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 
     # Parse the JSON

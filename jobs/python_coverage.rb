@@ -25,8 +25,15 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     json = JSON.parse(coverage_data)
 
     # Collect coverage by filename and keep track of totals
-    total_lines = { "lms" => 0, "cms" => 0, "common" => 0 }
-    covered_lines = { "lms" => 0, "cms" => 0, "common" => 0 }
+    suites = ['lms', 'cms', 'common/djangoapps', 'common/lib']
+    total_lines = {}
+    covered_lines = {}
+
+    # Start with 0 total and covered lines for each suite
+    suites.each do |suite|
+        total_lines[suite] = 0
+        covered_lines[suite] = 0
+    end
 
     file_results = json['results']['children']
     file_results.each do |result|
@@ -38,29 +45,25 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
         # (indices 0 and 2 are class and branch coverage respectively)
         line_coverage = result['elements'][1]
 
-        if src_path.start_with?('lms/') or src_path.start_with?('common/djangoapps')
-            covered_lines['lms'] += line_coverage['numerator']
-            total_lines['lms'] += line_coverage['denominator']
-        end
-
-        if src_path.start_with?('cms/') or src_path.start_with?('common/djangoapps')
-            covered_lines['cms'] += line_coverage['numerator']
-            total_lines['cms'] += line_coverage['denominator']
-        end
-
-        if src_path.start_with?('common/lib')
-            covered_lines['common'] += line_coverage['numerator']
-            total_lines['common'] += line_coverage['denominator']
+        # Increment the covered and total numbers of lines
+        # for each of the suites
+        suites.each do |suite|
+            if src_path.start_with?(suite)
+                covered_lines[suite] += line_coverage['numerator']
+                total_lines[suite] += line_coverage['denominator']
+            end
         end
     end
 
     # Calculate coverage percentages
     lms_cov = covered_lines['lms'] / total_lines['lms'] * 100
     cms_cov = covered_lines['cms'] / total_lines['cms'] * 100
-    common_cov = covered_lines['common'] / total_lines['common'] * 100
+    common_lib_cov = covered_lines['common/lib'] / total_lines['common/lib'] * 100
+    common_apps_cov = covered_lines['common/djangoapps'] / total_lines['common/djangoapps'] * 100
 
     send_event('py_lms', { value: lms_cov.to_i })
     send_event('py_cms', { value: cms_cov.to_i })
-    send_event('py_common', { value: common_cov.to_i })
+    send_event('py_common_lib', { value: common_lib_cov.to_i })
+    send_event('py_common_apps', { value: common_apps_cov.to_i })
 
 end

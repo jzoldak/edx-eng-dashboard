@@ -1,6 +1,6 @@
 <script type='text/javascript'>
 $(function() {
-    Dashing.gridsterLayout('[{"col":11,"row":1},{"col":3,"row":4},{"col":1,"row":4},{"col":9,"row":4},{"col":3,"row":6},{"col":1,"row":6},{"col":5,"row":6},{"col":5,"row":4},{"col":9,"row":1},{"col":3,"row":1},{"col":1,"row":1},{"col":5,"row":1},{"col":7,"row":1}]')
+    Dashing.gridsterLayout('[{"col":9,"row":1},{"col":3,"row":4},{"col":1,"row":4},{"col":9,"row":4},{"col":3,"row":6},{"col":1,"row":6},{"col":5,"row":6},{"col":5,"row":4},{"col":5,"row":1},{"col":3,"row":1},{"col":1,"row":1},{"col":7,"row":1}]')
 });
 </script>
 
@@ -14,7 +14,7 @@ Dashing.numColumns = 12
 <% content_for(:title) { "edX Engineering" } %>
 <div class="gridster">
   <ul>
-    <li data-row="1" data-col="7" data-sizex="2" data-sizey="3">
+    <li data-row="1" data-col="7" data-sizex="4" data-sizey="3">
       <div data-view="Image" data-image="/logo.png"></div>
     </li>
     <li data-row="1" data-col="3" data-sizex="2" data-sizey="2">
@@ -49,12 +49,7 @@ Dashing.numColumns = 12
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
     <li data-row="6" data-col="1" data-sizex="2" data-sizey="3">
-      <div data-id="py_capa" data-view="Meter" data-title="capa"
-      data-moreinfo="Python code coverage %"
-      data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
-    </li>
-    <li data-row="6" data-col="3" data-sizex="2" data-sizey="3">
-      <div data-id="py_xmodule" data-view="Meter" data-title="xmodule"
+      <div data-id="py_common" data-view="Meter" data-title="Common"
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>

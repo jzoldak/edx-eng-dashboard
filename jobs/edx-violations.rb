@@ -3,11 +3,12 @@ require "openssl"
 require "nokogiri"
 
 JENKINS_BASE_URL = 'https://jenkins.testeng.edx.org'
-
+JENKINS_JOB_NAME = 'edx-all-tests-auto-master'
+JENKINS_JOB_URL = JENKINS_BASE_URL + '/job/' + JENKINS_JOB_NAME
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
 
-    violations_uri = JENKINS_BASE_URL + '/job/edx-platform-master/SHARD=1,TEST_SUITE=quality/violations/?'
+    violations_uri = JENKINS_JOB_URL + '/SHARD=1,TEST_SUITE=quality/violations/?'
 
     violations_data = open(violations_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 

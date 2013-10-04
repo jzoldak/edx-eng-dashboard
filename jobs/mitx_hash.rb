@@ -16,8 +16,8 @@ p_hosts = ["prod-edge-edxapp-001",
            ]
 s_hosts = ["stage-edge-edxapp-001",
            "stage-edge-edxapp-002",
-           "stage-edxapp-001",
-           "stage-edxapp-002"
+           "stage-edxapp-002",
+           "stage-edxapp-004"
            ]
 
 suffix = '.m.edx.org'

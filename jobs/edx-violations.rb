@@ -1,15 +1,17 @@
-require "net/http"
-require "json"
+require "open-uri"
+require "openssl"
 require "nokogiri"
 
-host = 'jenkins.edx.org'
-port = '8080'
-http = Net::HTTP.new(host, port)
-request_uri = '/view/Code/job/edx-deploy-branch-tests/violations/?'
+JENKINS_BASE_URL = 'https://jenkins.testeng.edx.org'
+
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
-    response = http.request(Net::HTTP::Get.new(request_uri))
-    doc = Nokogiri::HTML(response.body)
+
+    violations_uri = JENKINS_BASE_URL + '/job/edx-platform-master/SHARD=1,TEST_SUITE=quality/violations/?'
+
+    violations_data = open(violations_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
+
+    doc = Nokogiri::HTML(violations_data)
     current_pep8 = doc.at_css("table.pane > tbody > tr:nth-of-type(2) > td:nth-of-type(2)").text
     current_pylint = doc.at_css("table.pane > tbody > tr:nth-of-type(3) > td:nth-of-type(2)").text
 

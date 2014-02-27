@@ -12,7 +12,9 @@ p_hosts = ["prod-edge-edxapp-001",
            "prod-edxapp-006",
            "prod-edxapp-007",
            "prod-edxapp-008",
-           "prod-edxapp-009"
+           "prod-edxapp-009",
+           "prod-edxapp-010",
+           "prod-edxapp-011"
            ]
 s_hosts = ["stage-edge-edxapp-001",
            "stage-edge-edxapp-002",

@@ -12,6 +12,6 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
     current_pep8 = doc.at_css("table.pane > tbody > tr:nth-of-type(2) > td:nth-of-type(2)").text
     current_pylint = doc.at_css("table.pane > tbody > tr:nth-of-type(3) > td:nth-of-type(2)").text
 
-    send_event('pep8', { current: current_pep8 })
-    send_event('pylint', { current: current_pylint })
+    send_event('pep8', { value: current_pep8.split(" ")[0].to_i })
+    send_event('pylint', { value: current_pylint.split(" ")[0].to_i })
 end

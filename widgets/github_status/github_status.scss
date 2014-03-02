@@ -1,0 +1,52 @@
+// ----------------------------------------------------------------------------
+// Widget-github-status styles
+// ----------------------------------------------------------------------------
+.widget-github-status {
+    background: #2A455C url("/assets/github/invertocat.png") no-repeat center;
+    position: relative;
+    overflow: hidden;
+    &.good {color:#396;}
+    &.minor {color:#f29d50;}
+    &.major {color:#c30;}
+
+    div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    }
+
+    #latest-message{
+    top: 5px;
+    margin: 0 5px;
+    #message {
+        &.good {
+        }
+        &.minor {
+        background:#fdf5ed;
+        border-radius:3px;
+        border:1px solid #ccc;
+        border-color:#f8cea7;
+        }
+        &.major {
+        background:#f9eae5;
+        border-radius:3px;
+        border:1px solid #ccc;
+        border-color:#e5997f;
+        }
+    }
+    }
+
+    #github-logo{
+    bottom: 30px;
+    height: 100px;
+    width: 200px;
+    &.good { background: url("/assets/github/logo-good.png") no-repeat center bottom; }
+    &.minor { background: url("/assets/github/logo-minor.png") no-repeat center bottom; }
+    &.major { background: url("/assets/github/logo-major.png") no-repeat center bottom; }
+    }
+
+    .updated-at {
+    color: rgba(255, 255, 255, 0.7);
+    }
+}

@@ -3,10 +3,6 @@ require "json"
 require "nokogiri"
 
 
-JENKINS_BASE_URL = 'https://jenkins.testeng.edx.org'
-JENKINS_JOB_NAME = 'edx-all-tests-auto-master'
-JENKINS_JOB_URL = JENKINS_BASE_URL + '/job/' + JENKINS_JOB_NAME
-
 # :first_in sets how long it takes before the job is first run. In this case, it is run immediately
 SCHEDULER.every '5m', :first_in => 0 do |job|
 

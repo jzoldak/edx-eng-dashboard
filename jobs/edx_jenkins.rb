@@ -2,9 +2,6 @@ require 'open-uri'
 require 'openssl'
 require 'json'
 
-JENKINS_JOB_NAME = 'edx-all-tests-auto-master'
-JENKINS_JOB_URL = JENKINS_BASE_URL + '/job/' + JENKINS_JOB_NAME
-
 current_status = nil
 SCHEDULER.every '10s', :first_in => 0 do
     last_status = current_status

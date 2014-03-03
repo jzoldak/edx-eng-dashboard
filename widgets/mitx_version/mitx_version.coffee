@@ -7,7 +7,6 @@ class Dashing.MitxVersion extends Dashing.Widget
       $(@node).find('ul').remove()
 
   onData: (data) ->
-    debugger
     if data.status
       # clear existing "status-*" classes
       $(@get('node')).attr 'class', (i,c) ->

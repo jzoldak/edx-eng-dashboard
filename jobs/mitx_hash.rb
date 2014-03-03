@@ -6,25 +6,24 @@ port = '8099'
 request_uri = '/versions.json'
 
 p_hosts = ["prod-edge-edxapp-001",
-           "prod-edge-edxapp-002",
-           "prod-edxapp-004",
-           "prod-edxapp-005",
-           "prod-edxapp-006",
-           "prod-edxapp-007",
-           "prod-edxapp-008",
-           "prod-edxapp-009",
-           "prod-edxapp-010",
-           "prod-edxapp-011"
-           ]
+    "prod-edge-edxapp-002",
+    "prod-edxapp-004",
+    "prod-edxapp-005",
+    "prod-edxapp-006",
+    "prod-edxapp-007",
+    "prod-edxapp-008",
+    "prod-edxapp-009",
+    "prod-edxapp-010",
+    "prod-edxapp-011"
+    ]
 s_hosts = ["stage-edge-edxapp-001",
-           "stage-edge-edxapp-002",
-           "stage-edxapp-002",
-           "stage-edxapp-004"
-           ]
+    "stage-edge-edxapp-002",
+    "stage-edxapp-002",
+    "stage-edxapp-004"
+    ]
 
 suffix = '.m.edx.org'
 
-# :first_in sets how long it takes before the job is first run. In this case, it is run immediately
 SCHEDULER.every '1m', :first_in => 0 do |job|
     prod_hash = Hash.new({ value: "N/A" })
     p_hosts.each do |host|
@@ -46,11 +45,13 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
     prod_hashes.count
 
     if prod_hashes.count==1
+
+        status_array = [{:label=>"", :value=>"#{prod_hashes.first}"}]
         send_event('mitx_hash_prod', { title: 'Production Version', unordered: true,
-                                       items: prod_hash.values, status:'ok' })
+            items: status_array, status:'ok' })
     else
         send_event('mitx_hash_prod', { title: 'Production Version', unordered: true,
-                                       items: prod_hash.values, status:'danger' })
+            items: prod_hash.values, status:'danger' })
     end
 
     stage_hashes = Set.new
@@ -58,10 +59,11 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
     stage_hashes.count
 
     if stage_hashes.count==1
+        status_array = [{:label=>"", :value=>"#{stage_hashes.first}"}]
         send_event('mitx_hash_stage', { title: 'Staging Version', unordered: true,
-                                        items: stage_hash.values, status: 'ok' })
+            items: status_array, status: 'ok' })
     else
         send_event('mitx_hash_stage', { title: 'Staging Version', unordered: true,
-                                        items: stage_hash.values, status: 'danger' })
+            items: stage_hash.values, status: 'danger' })
     end
 end

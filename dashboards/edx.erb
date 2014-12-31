@@ -39,30 +39,27 @@ Dashing.numColumns = 12
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
     <li data-row="4" data-col="1" data-sizex="2" data-sizey="2">
-      <div data-id="github_status" data-view="GithubStatus" data-title="GitHub Status"></div>
+      <div data-id="icon" data-view="Image" data-image="/edx.png"></div>
     </li>
     <li data-row="4" data-col="3" data-sizex="2" data-sizey="2">
-      <div data-id="mathworks_status" data-view="Status"></div>
+      <div data-id="github_status" data-view="GithubStatus" data-title="GitHub Status"></div>
     </li>
-    <li data-row="4" data-col="5" data-sizex="4" data-sizey="2">
-      <div data-id="mitx_hash_stage" data-view="MitxVersion" style="background-color:#b52967"></div>
+    <li data-row="4" data-col="5" data-sizex="4" data-sizey="5">
+      <div data-id="old_jenkins_status" data-view="Jenkins" data-title="Old Jenkins"></div>
     </li>
     <li data-row="4" data-col="9" data-sizex="4" data-sizey="5">
-      <div data-id="jenkins_deploy_status" data-view="Jenkins" data-title="Deploy Tests"></div>
+      <div data-id="new_jenkins_status" data-view="Jenkins" data-title="New Jenkins"></div>
     </li>
     <!-- warm should be the threshold on the branch jobs and
     cool should be 98 or 99% of it, depending on how aggressively
     we want to lower the numbers. -->
     <li data-row="6" data-col="1" data-sizex="2" data-sizey="3">
-      <div data-id="pylint" data-view="Hotness" data-title="Pylint Violations" data-cool="4752" data-warm="4800">
+      <div data-id="pylint" data-view="Hotness" data-title="Pylint Violations" data-cool="3752" data-warm="3800">
       </div>
     </li>
     <li data-row="6" data-col="3" data-sizex="2" data-sizey="3">
-      <div data-id="pep8" data-view="Hotness" data-title="PEP8 Violations" data-cool="881" data-warm="890">
+      <div data-id="pep8" data-view="Hotness" data-title="PEP8 Violations" data-cool="1" data-warm="2">
       </div>
-    </li>
-    <li data-row="6" data-col="5" data-sizex="4" data-sizey="3">
-      <div data-id="mitx_hash_prod" data-view="MitxVersion" style="background-color:#b52967"></div>
     </li>
   </ul>
 </div>

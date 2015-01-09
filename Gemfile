@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
-ruby "1.9.3"
-gem 'dashing', "1.3.2"
+ruby "2.1.5"
+gem 'dashing', "1.3.4"
 gem 'nokogiri'
 gem 'execjs'
 gem 'therubyracer'

@@ -13,7 +13,8 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     last_build_num = response.to_i
 
     # Retrieve the coverage info as JSON
-    coverage_uri = JENKINS_JOB_URL + "/SHARD=1,TEST_SUITE=bok-choy/#{last_build_num}/cobertura/_default_/api/json?depth=2"
+
+    coverage_uri = JENKINS_JOB_URL + "/SHARD=1,TEST_SUITE=bok-choy,label_exp=jenkins-worker/#{last_build_num}/cobertura/_default_/api/json?depth=2"
     coverage_data = open(coverage_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 
     # Parse the JSON

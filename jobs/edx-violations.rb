@@ -4,7 +4,7 @@ require "nokogiri"
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
 
-    violations_uri = JENKINS_JOB_URL + '/SHARD=1,TEST_SUITE=quality/violations/?'
+    violations_uri = JENKINS_JOB_URL + '/SHARD=1,TEST_SUITE=quality,label_exp=jenkins-worker/violations/?'
 
     violations_data = open(violations_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 

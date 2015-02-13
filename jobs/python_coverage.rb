@@ -14,7 +14,7 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     last_build_num = response.to_i
 
     # Retrieve all Python coverage info for the last successful job
-    coverage_uri = JENKINS_JOB_URL + "/SHARD=1,TEST_SUITE=unit,label_exp=jenkins-worker/#{last_build_num}/cobertura/_default_/api/json?depth=3"
+    coverage_uri = JENKINS_JOB_URL + "/#{last_build_num}/cobertura/_default_/api/json?depth=3"
     coverage_data = open(coverage_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 
     # Parse the JSON

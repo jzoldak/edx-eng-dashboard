@@ -1,5 +1,4 @@
 require 'nokogiri'
-#require 'open-uri'
 require 'openssl'
 require 'json'
 
@@ -14,16 +13,22 @@ analytics_repos_on_coveralls = Hash[
 SCHEDULER.every '5m', :first_in => 0 do |job|
 
     analytics_repos_on_coveralls.each do | repo, metric |
+        # Cycle through repos, get coverage data, and send to browser
+        line_coverage = get_coverage_from_coveralls(repo)
+        send_event("#{metric}",   { value: line_coverage })
+    end
+end
+
+def get_coverage_from_coveralls(repo)
+# Coveralls has no retrieval API (at this time). To get coverage, scrape the page
+# for latest unit test coverage data.
 
         # Retrieve the coverage info as HTML
         coverage_url = COVERALLS_URL + "#{repo}?branch-master"
         coverage_data = open(coverage_url, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 
-        # Parse the HTML
+        # Get coverage % as presented on page
         doc = Nokogiri::HTML(coverage_data)
-
         line_coverage = doc.at_css("#repoShowPercentage").text.gsub(/[%\n]/,'')
 
-        send_event("#{metric}",   { value: line_coverage })
-    end
 end

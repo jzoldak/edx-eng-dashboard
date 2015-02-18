@@ -5,7 +5,8 @@ require 'json'
 analytics_repos_on_coveralls = Hash[
     "edx-analytics-dashboard" => "dashboard_unit",
     "edx-analytics-data-api"=> "data_api_unit",
-    "edx-analytics-data-api-client" => "data_api_client_unit"
+    "edx-analytics-data-api-client" => "data_api_client_unit",
+    "edx-analytics-pipeline" => "pipeline_unit"
 ]
 
 

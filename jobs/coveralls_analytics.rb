@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'openssl'
 require 'json'
+require 'open-uri'
 
 analytics_repos_on_coveralls = Hash[
     "edx-analytics-dashboard" => "dashboard_unit",

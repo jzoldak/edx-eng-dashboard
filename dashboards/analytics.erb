@@ -1,0 +1,54 @@
+<script type='text/javascript'>
+$(function() {
+Dashing.widget_base_dimensions = [105, 105]
+Dashing.numColumns = 12
+});
+</script>
+
+<% content_for(:title) { "edX Analytics Engineering" } %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="3" data-sizey="3">
+      <div data-id="dashboard_unit" data-view="Meter" data-title="Dashboard Unit"
+      data-moreinfo="Python code coverage %"
+      data-min="0" data-max="100" style="background-color:#{ANALYTICS_METER_COLOR}"></div>
+    </li>
+    <li data-row="1" data-col="3" data-sizex="2" data-sizey="3">
+      <div data-id="dashboard_js" data-view="Meter" data-title="Dashboard JS"
+      data-moreinfo="Javascript code coverage %"
+      data-min="0" data-max="100" style="background-color:#{ANALYTICS_METER_COLOR}"></div>
+    </li>
+    <li data-row="1" data-col="5" data-sizex="2" data-sizey="3">
+      <div data-id="data_api_unit" data-view="Meter" data-title="Data API"
+      data-moreinfo="Python code coverage %"
+      data-min="0" data-max="100" style="background-color:#{ANALYTICS_METER_COLOR}"></div>
+    </li>
+    <li data-row="1" data-col="7" data-sizex="2" data-sizey="3">
+      <div data-id="data_api_client_unit" data-view="Meter" data-title="API Client"
+      data-moreinfo="Python code coverage %"
+      data-min="0" data-max="100" style="background-color:#{ANALYTICS_METER_COLOR}"></div>
+    </li>
+    <li data-row="1" data-col="9" data-sizex="3" data-sizey="3">
+      <div data-id="pipeline_unit" data-view="Meter" data-title="Pipeline"
+      data-moreinfo="Python code coverage %"
+      data-min="0" data-max="100" style="background-color:#{ANALYTICS_METER_COLOR}"></div>
+    </li>
+    <li data-row="4" data-col="1" data-sizex="3" data-sizey="3">
+      <div data-id="icon" data-view="Image" data-image="/edx.png"></div>
+    </li>
+    <li data-row="4" data-col="3" data-sizex="2" data-sizey="3">
+      <div data-id="langs_dashboard" data-view="ProgressBars" data-title="Project Bars"></div>
+    </li>
+    <li data-row="4" data-col="5" data-sizex="2" data-sizey="3">
+      <div data-id="langs_data_api" data-view="ProgressBars" data-title="Project Bars"></div>
+    </li>
+    <li data-row="4" data-col="7" data-sizex="2" data-sizey="3">
+      <div data-id="langs_data_api_client" data-view="ProgressBars" data-title="Project Bars"></div>
+    </li>
+    <li data-row="4" data-col="9" data-sizex="3" data-sizey="3">
+      <div data-id="langs_pipeline" data-view="ProgressBars" data-title="Project Bars"></div>
+    </li>
+
+
+  </ul>
+</div>

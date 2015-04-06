@@ -6,7 +6,7 @@ require 'json'
 SCHEDULER.every '5m', :first_in => 0 do |job|
 
     # Retrieve the number of the last stable build
-    last_build_uri = JENKINS_JOB_URL + '/lastStableBuild/buildNumber'
+    last_build_uri = BOK_CHOY_JOB_URL + '/lastStableBuild/buildNumber'
 
     # Once SSL certificates are set up correctly, we can remove the :ssl_verify_mode option
     response = open(last_build_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
@@ -14,7 +14,7 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
 
     # Retrieve the coverage info as JSON
 
-    coverage_uri = JENKINS_JOB_URL + "/#{last_build_num}/cobertura/_default_/api/json?depth=2"
+    coverage_uri = BOK_CHOY_JOB_URL + "/#{last_build_num}/cobertura/_default_/api/json?depth=2"
     coverage_data = open(coverage_uri, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 
     # Parse the JSON

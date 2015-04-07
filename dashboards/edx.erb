@@ -1,7 +1,7 @@
 <script type='text/javascript'>
 $(function() {
 Dashing.widget_base_dimensions = [105, 105]
-Dashing.numColumns = 10
+Dashing.numColumns = 14
 });
 </script>
 
@@ -28,13 +28,13 @@ Dashing.numColumns = 10
       data-moreinfo="Python code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
-<!--     <li data-row="1" data-col="9" data-sizex="2" data-sizey="3">
+    <li data-row="1" data-col="9" data-sizex="2" data-sizey="3">
       <div data-id="bok_coverage" data-view="Meter" data-title="Acceptance"
       data-moreinfo="Bok-choy code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
     </li>
- -->
-    <li data-row="1" data-col="9" data-sizex="2" data-sizey="3">
+
+    <li data-row="1" data-col="11" data-sizex="2" data-sizey="3">
       <div data-id="js_coverage" data-view="Meter" data-title="JavaScript"
       data-moreinfo="JavaScript code coverage %"
       data-min="0" data-max="100" style="background-color:#1aa1e0"></div>
@@ -42,20 +42,20 @@ Dashing.numColumns = 10
     <li data-row="4" data-col="1" data-sizex="2" data-sizey="2">
       <div data-id="icon" data-view="Image" data-image="/edx.png"></div>
     </li>
-    <li data-row="4" data-col="3" data-sizex="2" data-sizey="2">
+    <li data-row="4" data-col="3" data-sizex="4" data-sizey="2">
       <div data-id="github_status" data-view="GithubStatus" data-title="GitHub Status"></div>
     </li>
-    <li data-row="4" data-col="5" data-sizex="6" data-sizey="5">
+    <li data-row="4" data-col="7" data-sizex="6" data-sizey="5">
       <div data-id="jenkins_status" data-view="Jenkins" data-title="Jenkins"></div>
     </li>
     <!-- warm should be the threshold on the branch jobs and
     cool should be 98 or 99% of it, depending on how aggressively
     we want to lower the numbers. -->
-    <li data-row="6" data-col="1" data-sizex="2" data-sizey="3">
+    <li data-row="6" data-col="1" data-sizex="3" data-sizey="3">
       <div data-id="pylint" data-view="Hotness" data-title="Pylint Violations" data-cool="6300" data-warm="6400">
       </div>
     </li>
-    <li data-row="6" data-col="3" data-sizex="2" data-sizey="3">
+    <li data-row="6" data-col="3" data-sizex="3" data-sizey="3">
       <div data-id="pep8" data-view="Hotness" data-title="PEP8 Violations" data-cool="1" data-warm="2">
       </div>
     </li>

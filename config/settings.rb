@@ -9,4 +9,5 @@ COVERALLS_URL = 'https://coveralls.io/r/edx/'
 S3_URL = 'https://s3.amazonaws.com/'
 S3_BUCKET = 'edx-testeng-build-data'
 
+PLATFORM_METER_COLOR="#1aa1e0"
 ANALYTICS_METER_COLOR="#CC0099"

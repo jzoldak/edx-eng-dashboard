@@ -6,7 +6,9 @@ analytics_repos_on_github = Hash[
     "edx-analytics-dashboard" => "langs_dashboard",
     "edx-analytics-data-api"=> "langs_data_api",
     "edx-analytics-data-api-client" => "langs_data_api_client",
-    "edx-analytics-pipeline" => "langs_pipeline"
+    "edx-analytics-pipeline" => "langs_pipeline",
+    "ecommerce" => "langs_ecommerce",
+    "auth-backends" => "langs_auth_backends"
 ]
 
 

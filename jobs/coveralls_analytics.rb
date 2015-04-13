@@ -3,18 +3,20 @@ require 'openssl'
 require 'json'
 require 'open-uri'
 
-analytics_repos_on_coveralls = Hash[
+repos_on_coveralls = Hash[
     "edx-analytics-dashboard" => "dashboard_unit",
     "edx-analytics-data-api"=> "data_api_unit",
     "edx-analytics-data-api-client" => "data_api_client_unit",
-    "edx-analytics-pipeline" => "pipeline_unit"
+    "edx-analytics-pipeline" => "pipeline_unit",
+    "ecommerce" => "ecomm_unit",
+    "auth-backends" => "auth_backends"
 ]
 
 
 # :first_in sets how long it takes before the job is first run. In this case, it is run immediately
 SCHEDULER.every '5m', :first_in => 0 do |job|
 
-    analytics_repos_on_coveralls.each do | repo, metric |
+    repos_on_coveralls.each do | repo, metric |
         # Cycle through repos, get coverage data, and send to browser
         line_coverage = get_coverage_from_coveralls(repo)
         send_event("#{metric}",   { value: line_coverage })
@@ -27,6 +29,7 @@ def get_coverage_from_coveralls(repo)
 
         # Retrieve the coverage info as HTML
         coverage_url = COVERALLS_URL + "#{repo}?branch-master"
+        puts coverage_url
         coverage_data = open(coverage_url, :ssl_verify_mode=>OpenSSL::SSL::VERIFY_NONE).read
 
         # Get coverage % as presented on page

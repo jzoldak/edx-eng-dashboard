@@ -10,3 +10,4 @@ S3_URL = 'https://s3.amazonaws.com/'
 S3_BUCKET = 'edx-testeng-build-data'
 
 ANALYTICS_METER_COLOR="#CC0099"
+ECOM_METER_COLOR="#993300"
